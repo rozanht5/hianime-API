@@ -20,6 +20,7 @@ const someAnimes = {
   ],
 
   servers: ['hd-1', 'hd-2', 'hd-3', 'megaplay', 'vidwish'],
+  producers: ['toei-animation', 'fuji-tv', 'mappa', 'wit-studio'],
 };
 
 export default someAnimes;

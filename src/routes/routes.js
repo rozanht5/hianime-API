@@ -13,6 +13,7 @@ import * as animeCharacter from '../modules/characterInfo/animeCharacter/index';
 import * as voiceActor from '../modules/characterInfo/voiceActor/index';
 import * as genre from '../modules/explore/genre/index';
 import * as azList from '../modules/explore/az-list/index';
+import * as producer from '../modules/explore/producer/index';
 import * as filter from '../modules/explore/filter/index';
 import * as episodes from '../modules/episodes/index';
 import * as servers from '../modules/servers/index';
@@ -37,6 +38,7 @@ const routes = [
   voiceActor,
   genre,
   azList,
+  producer,
   filter,
   episodes,
   servers,
