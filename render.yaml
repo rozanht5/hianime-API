@@ -1,26 +1,23 @@
-# render.yaml for hianime-API deployment on Render.com
-
-# The version of the Render blueprint spec
 version: 2
 
-# Define the web service
 services:
   - type: web
     name: hianime-api
-    env: node  # Use Node env type so Bun commands run
-    # If this YAML is in your repo root, repo can be omitted.
-    repo: "https://github.com/rozanht5/hianime-API"
-    branch: "main"  # Change if you deploy from a different branch
-    buildCommand: "bun install"
-    startCommand: "bun run start" # Default start script in package.json
-    # Render will choose a port automatically
+    env: node
+    plan: free
+    branch: main
+
+    buildCommand: |
+      curl -fsSL https://bun.sh/install | bash
+      export BUN_INSTALL="$HOME/.bun"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+      bun install
+
+    startCommand: |
+      export BUN_INSTALL="$HOME/.bun"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+      bun run start
+
     envVars:
       - key: NODE_ENV
-        value: "production"
-      # Example custom env variable (uncomment & edit if needed)
-      # - key: MY_CUSTOM_KEY
-      #   value: "value_here"
-
-# Optional: autoDeployTrigger can be defined to adjust auto-deploy behavior
-autoDeployTrigger:
-  type: commit
+        value: production
